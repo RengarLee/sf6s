@@ -1,4 +1,4 @@
-**English** | [简体中文](./zh-CN.md)
+**English** | [简体中文](https://github.com/RengarLee/sf6s/blob/main/changelogs/v0.0.1/zh-CN.md)
 
 ---
 

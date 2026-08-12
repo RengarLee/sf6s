@@ -1,4 +1,4 @@
-**English** | [简体中文](./README.md)
+**English** | [简体中文](https://github.com/RengarLee/sf6s/blob/main/README.md)
 
 ---
 

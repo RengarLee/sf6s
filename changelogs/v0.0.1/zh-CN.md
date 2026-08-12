@@ -1,4 +1,4 @@
-[English](./en-US.md) | **简体中文**
+[English](https://github.com/RengarLee/sf6s/blob/main/changelogs/v0.0.1/en-US.md) | **简体中文**
 
 ---
 
