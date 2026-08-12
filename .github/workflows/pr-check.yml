@@ -1,0 +1,42 @@
+name: Validate Changelogs PR
+
+on:
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    name: Validate Changelog Structure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR Code
+        uses: actions/checkout@v4
+
+      - name: Check Changelogs Directory Format
+        run: |
+          echo "🔍 Checking changelogs directory structure..."
+          if [ ! -d "changelogs" ]; then
+            echo "❌ Error: 'changelogs' directory missing!"
+            exit 1
+          fi
+
+          DIRS=$(ls -d changelogs/v* 2>/dev/null || echo "")
+          if [ -z "$DIRS" ]; then
+            echo "⚠️ Warning: No version directories found in changelogs/"
+            exit 0
+          fi
+
+          for dir in $DIRS; do
+            ver=$(basename "$dir")
+            if [[ ! "$ver" =~ ^v[0-9]+\.[0-9]+\.[0-9]+ ]]; then
+              echo "❌ Error: Version directory '$ver' does not follow semantic versioning (e.g. v0.0.1)!"
+              exit 1
+            fi
+            
+            if [ ! -f "$dir/zh-CN.md" ]; then
+              echo "❌ Error: '$dir/zh-CN.md' is missing!"
+              exit 1
+            fi
+          done
+
+          echo "✅ All changelogs in PR validated successfully!"
