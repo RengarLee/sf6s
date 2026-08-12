@@ -12,10 +12,10 @@ Release Date: 2026-08-12
 
 ## Improved
 
-- **Move Matching Algorithm**: Enhanced `findMove` to distinguish forward jump variants and no-input conditions, supporting shared prefix moves.
-- **Card Rendering Enhancements**: Added translations for landing frames and direction arrows, drink-level conditions, and charge key icons.
-- **Resilience & Auto-Retry**: Automatically queues tasks when backend workers are offline/busy, retrying upon recovery.
-- **Unified i18n**: Refactored user-facing text into Koishi locale files with native `zh-CN` and `en-US` support.
+- **User Phrasing & Helpful Prompts**: Enhanced response copy for unrecognized characters or moves with smart suggestions; added structured prompt messages and menu guides when @Bot is mentioned without arguments.
+- **Interaction & Notification Flow**: Improved user status feedback for replay queueing and progress updates; clear prompts explaining worker busy states and automatic retry queuing.
+- **Unified Copywriting & i18n**: Refactored all user-facing prompts into Koishi locales, providing consistent and natural interaction in `zh-CN` and `en-US`.
+- **Card Visual Interaction**: Improved readability of landing frames, direction arrows, charge icons, and drink-level conditions on move cards.
 
 ## Fixed
 
