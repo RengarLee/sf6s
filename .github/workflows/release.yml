@@ -2,14 +2,13 @@ name: Release Changelog via GitHub Actions
 
 on:
   push:
-    branches: [ main, master ]
     tags:
       - 'v*'
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version tag (e.g. v0.0.2 or 0.0.2)'
-        required: false
+        description: 'Version tag (e.g. v0.0.1 or 0.0.1)'
+        required: true
 
 jobs:
   release:
@@ -20,32 +19,27 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Determine Version Tag & Prepare Notes
         id: prepare
         run: |
           TAG=""
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.version }}" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             TAG="${{ inputs.version }}"
-            # Format 0.0.2 to v0.0.2 if user omitted 'v'
+            # Format 0.0.1 to v0.0.1 if user omitted 'v'
             if [[ ! "$TAG" =~ ^v ]]; then
               TAG="v${TAG}"
             fi
-          elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
-            TAG="${{ github.ref_name }}"
           else
-            # On main branch push, find the latest version directory in changelogs/
-            TAG=$(ls -d changelogs/v* 2>/dev/null | sort -V | tail -n 1 | xargs -n 1 basename 2>/dev/null || echo "")
+            TAG="${{ github.ref_name }}"
           fi
 
           if [ -z "$TAG" ]; then
-            echo "No version directory found in changelogs/."
-            exit 0
+            echo "Error: No version tag provided."
+            exit 1
           fi
 
-          echo "Detected target version: $TAG"
+          echo "Target version: $TAG"
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
           ZH_CHANGELOG="changelogs/${TAG}/zh-CN.md"
@@ -57,7 +51,7 @@ jobs:
             cat "$EN_CHANGELOG" > release_notes.tmp
           else
             echo "::warning ::Changelog file for $TAG does not exist at $ZH_CHANGELOG or $EN_CHANGELOG"
-            exit 0
+            exit 1
           fi
 
       - name: Create or Update GitHub Release
@@ -67,7 +61,7 @@ jobs:
           TAG="${{ steps.prepare.outputs.tag }}"
           if [ -z "$TAG" ] || [ ! -f "release_notes.tmp" ]; then
             echo "Skipping release creation: No valid release notes."
-            exit 0
+            exit 1
           fi
 
           if gh release view "$TAG" > /dev/null 2>&1; then
