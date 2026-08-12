@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version tag (e.g. v0.0.1)'
+        description: 'Version tag (e.g. v0.0.2 or 0.0.2)'
         required: false
 
 jobs:
@@ -29,6 +29,10 @@ jobs:
           TAG=""
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.version }}" ]; then
             TAG="${{ inputs.version }}"
+            # Format 0.0.2 to v0.0.2 if user omitted 'v'
+            if [[ ! "$TAG" =~ ^v ]]; then
+              TAG="v${TAG}"
+            fi
           elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
             TAG="${{ github.ref_name }}"
           else
@@ -52,7 +56,8 @@ jobs:
           elif [ -f "$EN_CHANGELOG" ]; then
             cat "$EN_CHANGELOG" > release_notes.tmp
           else
-            echo "Release ${TAG} changelog updated." > release_notes.tmp
+            echo "::warning ::Changelog file for $TAG does not exist at $ZH_CHANGELOG or $EN_CHANGELOG"
+            exit 0
           fi
 
       - name: Create or Update GitHub Release
