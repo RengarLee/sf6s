@@ -1,0 +1,24 @@
+{
+  "updatedAt": "2026-08-12T12:51:10.084Z",
+  "latestVersion": "v1.0.0",
+  "totalVersions": 1,
+  "versions": [
+    {
+      "version": "v1.0.0",
+      "availableLanguages": [
+        "en-US",
+        "zh-CN"
+      ],
+      "languages": {
+        "en-US": {
+          "file": "changelogs/v1.0.0/en-US.md",
+          "updatedAt": "2026-08-12T12:50:52.609Z"
+        },
+        "zh-CN": {
+          "file": "changelogs/v1.0.0/zh-CN.md",
+          "updatedAt": "2026-08-12T12:50:51.201Z"
+        }
+      }
+    }
+  ]
+}
