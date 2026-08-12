@@ -1,12 +1,12 @@
 # SF6S 机器人版本变动日志库 (SF6S Changelogs)
 
-本仓库是 **SF6S 机器人 (SF6Koishi)** 专用的多语言版本变动日志（Changelog）集中存储库。
+本仓库是 SF6S 机器人 (SF6Koishi) 专用的多语言版本变动日志（Changelog）集中存储库。
 
-旨在提供一个**极简、轻量、高可读且对 API 友好**的变动日志管理方案。项目内**不包含任何安装包或复杂的构建工具**，完全依托 GitHub 原生 API 与 Raw CDN 供 SF6S 机器人或第三方客户端无缝读取。
+旨在提供一个极简、轻量、高可读且对 API 友好的变动日志管理方案。项目内不包含任何安装包或复杂的构建工具，完全依托 GitHub 原生 API 与 Raw CDN 供 SF6S 机器人或第三方客户端无缝读取。
 
 ---
 
-## 📁 目录结构规范 (Directory Layout)
+## 目录结构规范 (Directory Layout)
 
 每个版本拥有独立的文件目录，每种语言对应独立的 Markdown 文件，格式标准如下：
 
@@ -30,7 +30,7 @@ sf6s/
 
 ---
 
-## ✍️ 如何撰写与添加新版本日志？ (Contribution Guide)
+## 如何撰写与添加新版本日志 (Contribution Guide)
 
 当 SF6S 机器人发布新版本变动时，按以下步骤更新日志：
 
@@ -38,20 +38,20 @@ sf6s/
 在 [`changelogs/`](./changelogs) 目录下新建以版本号命名的文件夹（如 `changelogs/v1.2.0/`）。
 
 ### 2. 编写多语言日志文件
-在新建的版本目录下创建对应的语言 `.md` 文件（如 `zh-CN.md`）。日志建议使用统一的标题与分类图标，以提升可读性：
+在新建的版本目录下创建对应的语言 `.md` 文件（如 `zh-CN.md`）：
 
 ```markdown
 # SF6Koishi 版本日志 - v1.2.0
 
 发布日期: 2026-09-01
 
-## 🎉 核心功能 (Key Features)
-- 新增 xx 招式伤害对比分析工具。
+## 核心功能 (Key Features)
+- 新增招式伤害对比分析工具。
 
-## 🚀 功能升级 (Enhancements)
+## 功能升级 (Enhancements)
 - 优化帧数卡片在高分辨率下的渲染质量。
 
-## 🐞 修复 (Bug Fixes)
+## 修复 (Bug Fixes)
 - 修复某些招式别名在特定语境下匹配失效的问题。
 ```
 
@@ -65,9 +65,9 @@ git push origin main
 
 ---
 
-## 🌐 SF6S 机器人 REST API 读取指南 (REST API Integration)
+## SF6S 机器人 REST API 读取指南 (REST API Integration)
 
-SF6S 机器人或外部客户端可通过 **GitHub 原生 API** 或 **Raw CDN** 动态查询与展示变动日志。
+SF6S 机器人或外部客户端可通过 GitHub 原生 API 或 Raw CDN 动态查询与展示变动日志。
 
 ### 接口 1：获取所有可用版本目录
 - **请求方式**: `GET`
@@ -116,7 +116,7 @@ SF6S 机器人或外部客户端可通过 **GitHub 原生 API** 或 **Raw CDN** 
 
 ---
 
-## 💻 机器人端 JavaScript / Node.js 读取示例
+## 机器人端 JavaScript / Node.js 读取示例
 
 ```typescript
 import fetch from 'node-fetch'
@@ -155,7 +155,7 @@ async function fetchLatestChangelog(lang: string = 'zh-CN') {
 
 ---
 
-## 📜 版本历史概览 (Version History)
+## 版本历史概览 (Version History)
 
 | 版本号 | 发布日期 | 说明 | 对应日志目录 |
 | :--- | :--- | :--- | :--- |
@@ -164,6 +164,6 @@ async function fetchLatestChangelog(lang: string = 'zh-CN') {
 
 ---
 
-## 📄 开源协议
+## 开源协议
 
 本项目基于 [MIT License](LICENSE) 开源。
