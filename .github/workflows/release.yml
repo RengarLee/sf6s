@@ -1,36 +1,52 @@
-name: Release Changelog
+name: Release Changelog via GitHub Actions
 
 on:
   push:
+    branches: [ main, master ]
     tags:
       - 'v*'
   workflow_dispatch:
     inputs:
       version:
         description: 'Version tag (e.g. v0.0.1)'
-        required: true
+        required: false
 
 jobs:
   release:
-    name: Create GitHub Release
+    name: Create GitHub Release Notes
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Prepare Release Notes
-        id: notes
+      - name: Determine Version Tag & Prepare Notes
+        id: prepare
         run: |
-          TAG="${{ github.ref_name }}"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          TAG=""
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.version }}" ]; then
             TAG="${{ inputs.version }}"
+          elif [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            TAG="${{ github.ref_name }}"
+          else
+            # On main branch push, find the latest version directory in changelogs/
+            TAG=$(ls -d changelogs/v* 2>/dev/null | sort -V | tail -n 1 | xargs -n 1 basename 2>/dev/null || echo "")
           fi
-          
+
+          if [ -z "$TAG" ]; then
+            echo "No version directory found in changelogs/."
+            exit 0
+          fi
+
+          echo "Detected target version: $TAG"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
           ZH_CHANGELOG="changelogs/${TAG}/zh-CN.md"
           EN_CHANGELOG="changelogs/${TAG}/en-US.md"
-          
+
           if [ -f "$ZH_CHANGELOG" ]; then
             cat "$ZH_CHANGELOG" > release_notes.tmp
           elif [ -f "$EN_CHANGELOG" ]; then
@@ -43,15 +59,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG="${{ github.ref_name }}"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            TAG="${{ inputs.version }}"
+          TAG="${{ steps.prepare.outputs.tag }}"
+          if [ -z "$TAG" ] || [ ! -f "release_notes.tmp" ]; then
+            echo "Skipping release creation: No valid release notes."
+            exit 0
           fi
 
           if gh release view "$TAG" > /dev/null 2>&1; then
+            echo "Updating existing release: $TAG"
             gh release edit "$TAG" --title "SF6S Release $TAG" --notes-file release_notes.tmp
           else
+            echo "Creating new release: $TAG"
             gh release create "$TAG" --title "SF6S Release $TAG" --notes-file release_notes.tmp
           fi
-          
+
           rm -f release_notes.tmp
