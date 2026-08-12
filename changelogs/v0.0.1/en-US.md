@@ -2,17 +2,18 @@
 
 ---
 
-# SF6Koishi Changelog - v0.0.1
+# SF6S Changelog - v0.0.1
 
 Release Date: 2026-08-12
 
 ## Added
 
-- **Frame Data Queries (koishi-plugin-sf6-frame-data)**: Query startup frames, block advantage, damage, and hitboxes via character names (Akuma, Ryu) and move aliases (5hp, 236p, OD DP), rendered as HD image cards.
-- **Replay Recording & Proactive Notifications (koishi-plugin-sf6-replayer)**: Submit 9-character replay IDs for backend video recording. Mention users with video links once Bilibili/YouTube audit completes.
-- **Global Deduplication & Subscriptions**: Ensures each replay ID is recorded only once, converting duplicate requests into shared subscriptions.
-- **Server Upgrade Notifications**: Proactively notifies users when the server undergoes version upgrades or maintenance.
+- **Frame Data Queries**: Query startup frames, block advantage, hitboxes, and damage data via character names (e.g. Akuma) and move aliases (e.g. 5hp, 236p, OD DP), rendered as HD image cards.
+  - 🙌 Special thanks to QQ 太简单, QQ 焕冥, QQ 马肯博, QQ 悠哈, QQ 　, QQ 路德维C, QQ aaa 乐, QQ balance for data support
+- **Replay Recording & Proactive Notifications**: Submit 9-character in-game replay IDs for rapid backend video recording. Mention users with video links once published (approved on Bilibili/YouTube).
+- **Proactive Server Upgrade Notifications**: Notifies users during server version upgrades or system maintenance, keeping users informed of service status in real time.
+  - 🙌 Special thanks to QQ 悠哈 for the suggestion
 
 ## Improved
 
-- **User Phrasing & Helpful Prompts**: Enhanced response copy for unrecognized characters or moves with smart suggestions; added structured prompt messages and menu guides when @Bot is mentioned without arguments.
+- **Friendly Prompts & Guidance**: Smart error correction and suggestions for unrecognized characters or moves; structured prompts and menu guides when @Bot is mentioned without inputs in group chats.
