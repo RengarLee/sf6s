@@ -11,12 +11,14 @@ Release Date: 2026-08-12
 - **SF6 Frame Data Queries**: Query startup frames, block advantage, hitboxes, and damage data via character names (e.g. Akuma) and move aliases (e.g. 5hp, 236p, OD DP), rendered as HD image cards.
   - 🙌 Special thanks to QQ 太简单, QQ 焕冥, QQ 马肯博, QQ 悠哈, QQ 　, QQ 路德维C, QQ aaa 乐, QQ balance for data support
 
-![Frame Data Query](./move.jpg)
+![Frame Data Query](https://raw.githubusercontent.com/RengarLee/sf6s/main/changelogs/v0.0.1/move.jpg)
 
 - **Replay Recording & Proactive Notifications**: Submit 9-character in-game replay IDs to trigger backend video recording. Automatically mention the submitter with the video link after publication on Bilibili.
-![上传提示](./update.png)
+
 - **Proactive Server Upgrade Notifications**: Notifies users during server version upgrades or system maintenance, keeping users informed of service status in real time.
   - 🙌 Special thanks to QQ 悠哈 for the suggestion
+
+![Server Upgrade Notification](https://raw.githubusercontent.com/RengarLee/sf6s/main/changelogs/v0.0.1/update.png)
 
 ## Improved
 

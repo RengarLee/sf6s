@@ -11,15 +11,14 @@
 - **SF6 招式帧数查询 **：支持通过角色名（如豪鬼、Akuma）与招式别名（如 5hp、236p、OD升龙）查询招式发生帧、硬直差、判定与伤害数据，并渲染为高清图片卡片。
   - 🙌 特别感谢 QQ 太简单, QQ 焕冥, QQ 马肯博, QQ 悠哈, QQ 　, QQ 路德维C, QQ aaa 乐, QQ balance 提供的数据支持
 
-![招式查询](./move.jpg)
+![招式查询](https://raw.githubusercontent.com/RengarLee/sf6s/main/changelogs/v0.0.1/move.jpg)
 
 - **对局回放录制与主动通知 **：支持提交 9 位游戏内回放 ID 触发后台视频录制，视频发布B站后主动艾特提交者并附带播放链接。
-![上传提示](./update.png)
 
 - **服务器升级主动提示**：当服务器进行版本升级或系统维护时，向用户提醒，确保服务状态实时感知。
   - 🙌 特别感谢 QQ 悠哈 提供的建议
 
-
+![服务器升级提示](https://raw.githubusercontent.com/RengarLee/sf6s/main/changelogs/v0.0.1/update.png)
 
 ## 优化
 
