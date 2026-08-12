@@ -1,0 +1,57 @@
+name: Release Changelog
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v0.0.1)'
+        required: true
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Prepare Release Notes
+        id: notes
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.version }}"
+          fi
+          
+          ZH_CHANGELOG="changelogs/${TAG}/zh-CN.md"
+          EN_CHANGELOG="changelogs/${TAG}/en-US.md"
+          
+          if [ -f "$ZH_CHANGELOG" ]; then
+            cat "$ZH_CHANGELOG" > release_notes.tmp
+          elif [ -f "$EN_CHANGELOG" ]; then
+            cat "$EN_CHANGELOG" > release_notes.tmp
+          else
+            echo "Release ${TAG} changelog updated." > release_notes.tmp
+          fi
+
+      - name: Create or Update GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ inputs.version }}"
+          fi
+
+          if gh release view "$TAG" > /dev/null 2>&1; then
+            gh release edit "$TAG" --title "SF6S Release $TAG" --notes-file release_notes.tmp
+          else
+            gh release create "$TAG" --title "SF6S Release $TAG" --notes-file release_notes.tmp
+          fi
+          
+          rm -f release_notes.tmp
