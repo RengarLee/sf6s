@@ -8,7 +8,7 @@
 
 ## Core Features
 
-- **SF6 Frame Data Queries**: Query startup frames, block advantage, hitboxes, and damage data via character names (e.g. Akuma) and move aliases (e.g. 5hp, 236p, OD DP), rendered as HD image cards.
+- **SF6 Frame Data Queries**: Query startup frames, block advantage, hitboxes, and damage data via character names (e.g. Akuma) and move aliases (e.g. 5hp, 236p, OD DP), rendered as HD image cards. Includes official Capcom move notes and direct links to character detailed hitbox websites.
   - 🙌 Special thanks to QQ 太简单, QQ 焕冥, QQ 马肯博, QQ 悠哈, QQ 　, QQ 路德维C, QQ aaa 乐, QQ balance for data support
 
 <p align="center">
@@ -24,4 +24,4 @@
   <img src="https://raw.githubusercontent.com/RengarLee/sf6s/main/changelogs/v0.0.1/update.png" alt="Server Upgrade Notification" width="500" />
 </p>
 
-- **Friendly Prompts & Guidance**: Smart error correction and suggestions for unrecognized characters or moves; structured prompts and menu guides when @Bot is mentioned without inputs in group chats.
+- **Friendly Prompts & Guidance**: Smart fuzzy matching and candidate character suggestions for unrecognized characters or moves; structured prompts and menu guides when @Bot is mentioned without inputs in group chats.
