@@ -8,7 +8,7 @@
 
 ## Core Features
 
-- **SF6 Frame Data Queries**: Query startup frames, block advantage, hitboxes, and damage data via character names (e.g. Akuma) and move aliases (e.g. 5hp, 236p, OD DP), rendered as HD image cards. Includes official Capcom move notes and direct links to character detailed hitbox websites.
+- **SF6 Frame Data Queries**: Query startup frames, block advantage, hitboxes, damage data, and move cancel information (showing which move types can cancel it) via character names (e.g. Akuma) and move aliases (e.g. 5hp, 236p, OD DP), rendered as HD image cards. Includes official Capcom move notes and direct links to character detailed hitbox websites.
   - 🙌 Special thanks to QQ 太简单, QQ 焕冥, QQ 马肯博, QQ 悠哈, QQ 　, QQ 路德维C, QQ aaa 乐, QQ balance for data support
 
 <p align="center">
