@@ -15,7 +15,9 @@
   <img src="https://raw.githubusercontent.com/RengarLee/sf6s/main/changelogs/v0.0.1/move.jpg" alt="Frame Data Query" width="500" />
 </p>
 
-- **Replay Recording & Proactive Notifications**: Submit 9-character in-game replay IDs to trigger backend video recording. Automatically mention the submitter with the video link after publication on Bilibili.
+- **Replay Recording & Proactive Notifications**: Submit 9-character in-game replay IDs to trigger backend video recording. Automatically mention the submitter with the video link after publication on Bilibili; video comments automatically include timestamp prompts for low HP comeback highlight moments.
+
+- **Quick Replay Data Analysis**: Provides dedicated analysis commands to swiftly parse match replay data and produce multi-dimensional statistics, helping players quickly grasp match details.
 
 - **Proactive Server Upgrade Notifications**: Notifies users during server version upgrades or system maintenance, keeping users informed of service status in real time.
   - 🙌 Special thanks to QQ 悠哈 for the suggestion
