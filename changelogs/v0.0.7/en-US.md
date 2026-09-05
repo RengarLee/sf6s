@@ -1,8 +1,8 @@
-**English** | [简体中文](https://github.com/RengarLee/sf6s/blob/main/changelogs/v0.7.0/zh-CN.md)
+**English** | [简体中文](https://github.com/RengarLee/sf6s/blob/main/changelogs/v0.0.7/zh-CN.md)
 
 ---
 
-# SF6S Changelog - v0.7.0
+# SF6S Changelog - v0.0.7
 
 ## Added
 

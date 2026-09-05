@@ -1,8 +1,8 @@
-[English](https://github.com/RengarLee/sf6s/blob/main/changelogs/v0.7.0/en-US.md) | **简体中文**
+[English](https://github.com/RengarLee/sf6s/blob/main/changelogs/v0.0.7/en-US.md) | **简体中文**
 
 ---
 
-# SF6S 版本日志 - v0.7.0
+# SF6S 版本日志 - v0.0.7
 
 ## 新增
 
