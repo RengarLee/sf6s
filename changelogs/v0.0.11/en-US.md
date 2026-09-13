@@ -6,4 +6,7 @@
 
 ## Added
 
-- **Personal Win Rates (`胜率`) by Mode**: Specify a mode when querying personal matchup win rates to view performance in that mode.
+- **Mode Filter for Personal Win Rates (`胜率`)**: Filter personal matchup win rates by mode to see how you perform in each mode.
+  - 🙌 Special thanks to QQ user 悠哈 for the suggestion.
+- **Mode Filter and More Pages for Match History (`战绩`)**: Filter match history by mode and browse additional pages to view earlier matches.
+  - 🙌 Special thanks to QQ user Mke for the suggestion.
