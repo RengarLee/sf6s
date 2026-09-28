@@ -8,9 +8,14 @@
 
 - **Feedback Command**: Send questions, ideas, or suggestions directly to the bot without filling out a form.
 - **Damage-Taken Causes in Replay Analysis**: Replay analysis now shows why damage was taken, helping players identify key areas to improve in their own play.
+  - 🙌 Special thanks to QQ users 焕冥 and www.TH.zz for their suggestions and guidance.
+- **Opponent Moves in Replay Analysis**: Replay analysis now includes opponent move statistics, helping players identify moves they struggle to counter.
+  - 🙌 Special thanks to QQ users 太简单, 悠哈, and 无道 for their suggestions and guidance.
 - **All-Character Matchup Win Rates**: View a player's combined battles, wins, and win rates against each opponent character across all characters they play.
   - 🙌 Special thanks to QQ user 何为强大 for the suggestion.
 - **Setback Notices Below Master**: Receive a setback notice after dropping two rank divisions from the current peak (one division in between), such as Platinum 5 → Platinum 3.
+  - 🙌 Special thanks to QQ users 山从地尽云垂海 and 马肯博 for their suggestions.
+- **Sponsorship Option**: Added a way to sponsor the project and support ongoing feature development and maintenance.
 
 ## Improved
 
